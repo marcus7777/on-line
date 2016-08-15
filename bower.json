@@ -1,0 +1,14 @@
+{
+  "name": "on-line",
+  "version": "1.0.0",
+  "description": "tests if you are online",
+  "main": "on-line.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "dependencies": {
+    "icon-icons": "*",
+    "iron-icon": "PolymerElements/iron-icon#f4e146da49"
+  }
+}

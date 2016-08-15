@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>on-line</title>
+    <script src="../../webcomponentsjs/webcomponents.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <script src="../../iron-test-helpers/mock-interactions.js"></script>
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <link rel="import" href="../on-line.html">
+  </head>
+  <body>
+    <test-fixture id="onLine">
+      <template>
+        <on-line></on-line> //add attributes
+      </template>
+    </test-fixture>
+    <script>
+      suite('<on-line>', function () {
+        var onLine;
+        setup(function () {
+          onLine = fixture('onLine');
+        });
+        teardown(function () {
+          //...
+        });
+        suite('basic usage', function () {
+          test('can be triggered with space', function(done) {
+            onLine.addEventListener('keydown', function() {
+              done()
+            })
+            MockInteractions.pressSpace(onLine)
+          })
+          test('can be clicked', function(done) {
+            onLine.addEventListener('click', function() {
+              done()
+            })
+            MockInteractions.tap(onLine)
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

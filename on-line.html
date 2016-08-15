@@ -1,0 +1,32 @@
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../icon-icons/iron-icons.html">
+<!--
+  `<on-line></on-line>` tests if you are online
+  @demo demo.html
+-->
+<dom-module id="on-line">
+  <template>
+    <iron-icon icon="cloud" hidden$="{{!online}}"></iron-icon>
+    <iron-icon icon="cloud-off" hidden$="{{online}}"></iron-icon>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "on-line",
+    properties:{
+      online:{
+        type:Boolean,
+        notify:true,
+        value:true,
+      },
+    },
+    ready: function(undefined){
+      window.addEventListener('online', this.isOnline)
+      window.addEventListener('offline', this.isOnline)
+      this.isOnline()
+    },
+    isOnline: function(undefined){
+      this.set("online" ,window.navigator.onLine)
+    },
+  })
+</script>
